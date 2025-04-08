@@ -5,6 +5,7 @@ on:
     types: [closed]
   pull_request:
     types: [closed]
+  workflow_dispatch:
 
 jobs:
   update-completed-sprint:
@@ -18,7 +19,7 @@ jobs:
           private_key: ${{ secrets.GH_PROJECT_MANAGEMENT_APP_PEM }}
       - name: Update CompletedSprint on Issue Closed
         id: update_completedsprint_on_issue_closed
-        uses: stellar/actions/update-completed-sprint-on-issue-closed@main
+        uses: stellar/actions/update-completed-sprint-on-issue-closed@molly/main/fix-completed-sprint
         with:
           project_name: "Platform Scrum"
           field_name: "CompletedSprint"
